@@ -1,5 +1,9 @@
-Load Required Packages
-======================
+How is personality pathology related to negative perceptions of others?
+================
+Michael Carnovale, Vina Goghari, Erika Carlson
+SRP 2021
+
+# Load Required Packages
 
 ``` r
 library(psych) # For descriptives
@@ -19,14 +23,16 @@ library(ggplot2) # Plots
 installed.packages()[names(sessionInfo()$otherPkgs), "Version"]
 ```
 
-    ##    DescTools       lavaan    yardstick workflowsets    workflows         tune        tidyr       tibble      rsample 
-    ##    "0.99.43"      "0.6-9"      "0.0.8"      "0.0.2"      "0.2.2"      "0.1.5"      "1.1.3"      "3.1.2"      "0.1.0" 
-    ##      recipes        purrr      parsnip    modeldata        infer        dplyr        dials       scales        broom 
-    ##     "0.1.16"      "0.3.4"      "0.1.6"      "0.1.0"      "0.5.4"      "1.0.6"      "0.0.9"      "1.1.1"      "0.7.7" 
-    ##   tidymodels      stringi      TripleR      ggplot2 DataExplorer summarytools    inspectdf       jtools        psych 
-    ##      "0.1.3"      "1.4.6"      "1.5.3"      "3.3.4"      "0.8.2"      "0.9.6"     "0.0.11"      "2.1.3"  "1.9.12.31" 
-    ##    rmarkdown     markdown 
-    ##        "2.9"        "1.1"
+    ##    DescTools       lavaan    yardstick workflowsets    workflows         tune 
+    ##    "0.99.43"      "0.6-9"      "0.0.8"      "0.0.2"      "0.2.2"      "0.1.5" 
+    ##        tidyr       tibble      rsample      recipes        purrr      parsnip 
+    ##      "1.1.3"      "3.1.2"      "0.1.0"     "0.1.16"      "0.3.4"      "0.1.6" 
+    ##    modeldata        infer        dplyr        dials       scales        broom 
+    ##      "0.1.0"      "0.5.4"      "1.0.6"      "0.0.9"      "1.1.1"      "0.7.7" 
+    ##   tidymodels      stringi      TripleR      ggplot2 DataExplorer summarytools 
+    ##      "0.1.3"      "1.4.6"      "1.5.3"      "3.3.4"      "0.8.2"      "0.9.6" 
+    ##    inspectdf       jtools        psych 
+    ##     "0.0.11"      "2.1.3"  "1.9.12.31"
 
 ``` r
 #### Import data ####
@@ -41,8 +47,7 @@ df_end = read.csv("https://raw.githubusercontent.com/michaelcarnovale/SRP-2021-P
 df_end = df_end[,-1] # Removing extra column
 ```
 
-Data Cleaning/Structuring/Management
-====================================
+# Data Cleaning/Structuring/Management
 
 ``` r
 #### Recoding variables of interest ####
@@ -141,8 +146,7 @@ df_baseline = df_baseline %>%
          psychoticism = rowMeans(select(., PID7_1, PID12_1, PID21_1, PID23_1, PID24_1), na.rm = T))
 ```
 
-Estimating Social Relations Models
-==================================
+# Estimating Social Relations Models
 
 The Social Relations Model was estimated for each TIPI item that was
 rated in the round robin design.
@@ -196,8 +200,7 @@ df_full = df_full %>%
                           na.rm = T))
 ```
 
-Exploratory Data Analysis (Self-Report)
-=======================================
+# Exploratory Data Analysis (Self-Report)
 
 ``` r
 ## Descriptive stats (IVs only)
@@ -206,14 +209,22 @@ df_full %>%
   describe(quant = c(.25, .75))
 ```
 
-    ##                vars   n  mean   sd median trimmed  mad min   max range  skew kurtosis   se Q0.25 Q0.75
-    ## negativeaffect    1 145  2.46 0.67    2.4    2.47 0.59   1  3.80  2.80 -0.13    -0.53 0.06  2.00  3.00
-    ## detachment        2 145  2.00 0.60    2.0    1.99 0.59   1  3.60  2.60  0.23    -0.64 0.05  1.60  2.40
-    ## antagonism        3 145  1.58 0.53    1.4    1.51 0.59   1  3.40  2.40  1.24     1.50 0.04  1.20  1.80
-    ## disinhibition     4 145  1.93 0.70    1.8    1.88 0.89   1  3.80  2.80  0.51    -0.65 0.06  1.40  2.40
-    ## psychoticism      5 145  2.11 0.73    2.0    2.08 0.89   1  3.80  2.80  0.22    -0.92 0.06  1.50  2.60
-    ## total             6 145  2.02 0.46    2.0    2.01 0.47   1  3.08  2.08  0.08    -0.58 0.04  1.68  2.36
-    ## Age               7 117 18.45 0.93   18.0   18.23 0.00  18 23.00  5.00  2.72     8.04 0.09 18.00 19.00
+    ##                vars   n  mean   sd median trimmed  mad min   max range  skew
+    ## negativeaffect    1 145  2.46 0.67    2.4    2.47 0.59   1  3.80  2.80 -0.13
+    ## detachment        2 145  2.00 0.60    2.0    1.99 0.59   1  3.60  2.60  0.23
+    ## antagonism        3 145  1.58 0.53    1.4    1.51 0.59   1  3.40  2.40  1.24
+    ## disinhibition     4 145  1.93 0.70    1.8    1.88 0.89   1  3.80  2.80  0.51
+    ## psychoticism      5 145  2.11 0.73    2.0    2.08 0.89   1  3.80  2.80  0.22
+    ## total             6 145  2.02 0.46    2.0    2.01 0.47   1  3.08  2.08  0.08
+    ## Age               7 117 18.45 0.93   18.0   18.23 0.00  18 23.00  5.00  2.72
+    ##                kurtosis   se Q0.25 Q0.75
+    ## negativeaffect    -0.53 0.06  2.00  3.00
+    ## detachment        -0.64 0.05  1.60  2.40
+    ## antagonism         1.50 0.04  1.20  1.80
+    ## disinhibition     -0.65 0.06  1.40  2.40
+    ## psychoticism      -0.92 0.06  1.50  2.60
+    ## total             -0.58 0.04  1.68  2.36
+    ## Age                8.04 0.09 18.00 19.00
 
 ``` r
 df_full %>% 
@@ -541,7 +552,7 @@ df_full %>%
   show_plot()
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
 df_full %>% 
@@ -550,7 +561,7 @@ df_full %>%
   plot_bar()
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-7-2.png)![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-7-3.png)![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-7-4.png)
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-7-3.png)<!-- -->![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-7-4.png)<!-- -->
 
 ``` r
 # Numeric variables
@@ -559,7 +570,7 @@ df_full %>%
   plot_histogram()
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-7-5.png)
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-7-5.png)<!-- -->
 
 ``` r
 df_full %>%
@@ -567,10 +578,9 @@ df_full %>%
   plot_density()
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-7-6.png)
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-7-6.png)<!-- -->
 
-Regression Models (Self-Report Data)
-====================================
+# Regression Models (Self-Report Data)
 
 ``` r
 ## Creating PCA variable for pos/neg perceiver effects
@@ -732,8 +742,7 @@ model.function(df_full$negativeaffect, df_full$detachment, df_full$antagonism,
 
     ## [1] 0.310811778 0.112602410 0.004220175 0.005742392 0.112602410 0.005742392
 
-Cleaning and Scoring Informant Data
-===================================
+# Cleaning and Scoring Informant Data
 
 ``` r
 df_inf = read.csv("https://raw.githubusercontent.com/michaelcarnovale/SRP-2021-Poster/main/Data/Informant_Data_Carnovale.csv",
@@ -928,8 +937,7 @@ df_inf = df_inf %>%
                           na.rm = T))
 ```
 
-Merging with Target Data
-========================
+# Merging with Target Data
 
 ``` r
 ###### Merging data with target data #######
@@ -938,8 +946,7 @@ df_inf = df_inf %>%
 df_full2 = merge(df_full, df_inf, by = "Study_ID")
 ```
 
-Exploratory Data Analysis (Informant-Report)
-============================================
+# Exploratory Data Analysis (Informant-Report)
 
 ``` r
 df_full2 %>% 
@@ -947,13 +954,20 @@ df_full2 %>%
   describe(quant = c(.25, .75))
 ```
 
-    ##                    vars   n mean   sd median trimmed  mad  min  max range skew kurtosis   se Q0.25 Q0.75
-    ## negativeaffect_inf    1 102 1.93 0.61   1.80    1.91 0.59 1.00 3.40  2.40 0.31    -0.79 0.06  1.40   2.4
-    ## detachment_inf        2 102 1.90 0.58   1.80    1.85 0.59 1.00 3.40  2.40 0.58    -0.28 0.06  1.40   2.2
-    ## antagonism_inf        3 102 1.42 0.58   1.20    1.30 0.30 1.00 4.00  3.00 2.15     5.25 0.06  1.00   1.6
-    ## disinhibition_inf     4 102 1.67 0.65   1.60    1.60 0.89 1.00 3.60  2.60 0.66    -0.61 0.06  1.00   2.2
-    ## psychoticism_inf      5 102 1.74 0.62   1.80    1.68 0.59 1.00 3.80  2.80 0.75     0.22 0.06  1.20   2.0
-    ## total_inf             6 102 1.73 0.45   1.68    1.70 0.47 1.04 2.96  1.92 0.53    -0.37 0.04  1.36   2.0
+    ##                    vars   n mean   sd median trimmed  mad  min  max range skew
+    ## negativeaffect_inf    1 102 1.93 0.61   1.80    1.91 0.59 1.00 3.40  2.40 0.31
+    ## detachment_inf        2 102 1.90 0.58   1.80    1.85 0.59 1.00 3.40  2.40 0.58
+    ## antagonism_inf        3 102 1.42 0.58   1.20    1.30 0.30 1.00 4.00  3.00 2.15
+    ## disinhibition_inf     4 102 1.67 0.65   1.60    1.60 0.89 1.00 3.60  2.60 0.66
+    ## psychoticism_inf      5 102 1.74 0.62   1.80    1.68 0.59 1.00 3.80  2.80 0.75
+    ## total_inf             6 102 1.73 0.45   1.68    1.70 0.47 1.04 2.96  1.92 0.53
+    ##                    kurtosis   se Q0.25 Q0.75
+    ## negativeaffect_inf    -0.79 0.06  1.40   2.4
+    ## detachment_inf        -0.28 0.06  1.40   2.2
+    ## antagonism_inf         5.25 0.06  1.00   1.6
+    ## disinhibition_inf     -0.61 0.06  1.00   2.2
+    ## psychoticism_inf       0.22 0.06  1.20   2.0
+    ## total_inf             -0.37 0.04  1.36   2.0
 
 ``` r
 # Univariate visualizations
@@ -962,7 +976,7 @@ df_full2 %>%
   plot_histogram()
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 ``` r
 df_full2 %>%
@@ -970,10 +984,9 @@ df_full2 %>%
   plot_density()
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-13-2.png)
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-13-2.png)<!-- -->
 
-Regression Models (Informant-Report Data)
-=========================================
+# Regression Models (Informant-Report Data)
 
 ``` r
 ## Univariate relations (note order of variables)
@@ -1098,8 +1111,7 @@ model.function(df_full2$negativeaffect_inf, df_full2$detachment_inf, df_full2$an
 
     ## [1] 0.3312239 0.8873776 0.5532971 0.3312239 0.2485159 0.3312239
 
-Structural-After-Measurement SEMs
-=================================
+# Structural-After-Measurement SEMs
 
 ``` r
 ## Negative Affect
@@ -1758,11 +1770,10 @@ pvals = c(.372, .235, .063, .267, .001, .392, .005, .098, .119, .195, .010, .079
 p.adjust(pvals, method = "BH") # self-antagonism, self-disinhibition, and self-total still statistically significant
 ```
 
-    ##  [1] 0.3920000 0.3133333 0.1890000 0.3204000 0.0120000 0.3920000 0.0300000 0.1960000 0.2040000 0.2925000 0.0400000
-    ## [12] 0.1896000
+    ##  [1] 0.3920000 0.3133333 0.1890000 0.3204000 0.0120000 0.3920000 0.0300000
+    ##  [8] 0.1960000 0.2040000 0.2925000 0.0400000 0.1896000
 
-Jonckheere’s Trend Test
-=======================
+# Jonckheere’s Trend Test
 
 Tests null hypothesis that k1 = k2 = k3 = kn, where kn is ordinal level
 ‘n’
@@ -1885,10 +1896,10 @@ pvals.jt = c(.06882, .8515, .1495, .0001044, .01053, .002552, .004676, .01197, .
 p.adjust(pvals.jt, method = "BH") # Items 22, 25 from antagonism; 1, 2, 3, 5 from disinhibition still statistically significant
 ```
 
-    ##  [1] 0.09831429 0.85150000 0.16611111 0.00104400 0.02394000 0.01276000 0.01558667 0.02394000 0.03701667 0.13225000
+    ##  [1] 0.09831429 0.85150000 0.16611111 0.00104400 0.02394000 0.01276000
+    ##  [7] 0.01558667 0.02394000 0.03701667 0.13225000
 
-Plots
-=====
+# Plots
 
 ``` r
 ggplot(df_full, aes(negativeaffect, perceiver_effect))+
@@ -1898,7 +1909,9 @@ ggplot(df_full, aes(negativeaffect, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-1.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
 
 ``` r
 ggplot(df_full, aes(detachment, perceiver_effect))+
@@ -1908,7 +1921,9 @@ ggplot(df_full, aes(detachment, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-2.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-2.png)<!-- -->
 
 ``` r
 ggplot(df_full, aes(antagonism, perceiver_effect))+
@@ -1918,7 +1933,9 @@ ggplot(df_full, aes(antagonism, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-3.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-3.png)<!-- -->
 
 ``` r
 ggplot(df_full, aes(disinhibition, perceiver_effect))+
@@ -1928,7 +1945,9 @@ ggplot(df_full, aes(disinhibition, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-4.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-4.png)<!-- -->
 
 ``` r
 ggplot(df_full, aes(psychoticism, perceiver_effect))+
@@ -1938,7 +1957,9 @@ ggplot(df_full, aes(psychoticism, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-5.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-5.png)<!-- -->
 
 ``` r
 ggplot(df_full, aes(total, perceiver_effect))+
@@ -1948,7 +1969,9 @@ ggplot(df_full, aes(total, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-6.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-6.png)<!-- -->
 
 ``` r
 # Informant
@@ -1959,7 +1982,9 @@ ggplot(df_full2, aes(negativeaffect_inf, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-7.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-7.png)<!-- -->
 
 ``` r
 ggplot(df_full2, aes(detachment_inf, perceiver_effect))+
@@ -1969,7 +1994,9 @@ ggplot(df_full2, aes(detachment_inf, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-8.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-8.png)<!-- -->
 
 ``` r
 ggplot(df_full2, aes(antagonism_inf, perceiver_effect))+
@@ -1979,7 +2006,9 @@ ggplot(df_full2, aes(antagonism_inf, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-9.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-9.png)<!-- -->
 
 ``` r
 ggplot(df_full2, aes(disinhibition_inf, perceiver_effect))+
@@ -1989,7 +2018,9 @@ ggplot(df_full2, aes(disinhibition_inf, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-10.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-10.png)<!-- -->
 
 ``` r
 ggplot(df_full2, aes(psychoticism_inf, perceiver_effect))+
@@ -1999,7 +2030,9 @@ ggplot(df_full2, aes(psychoticism_inf, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-11.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-11.png)<!-- -->
 
 ``` r
 ggplot(df_full2, aes(total_inf, perceiver_effect))+
@@ -2009,4 +2042,6 @@ ggplot(df_full2, aes(total_inf, perceiver_effect))+
   theme(axis.title = element_text(size = 19))
 ```
 
-![](R_md_toc_SRP_2021_Carnovale_files/figure-markdown_github/unnamed-chunk-17-12.png)
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](R_md_toc_SRP_2021_Carnovale_files/figure-gfm/unnamed-chunk-17-12.png)<!-- -->
