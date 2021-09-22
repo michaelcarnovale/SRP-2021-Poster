@@ -51,8 +51,3 @@ or click the green 'Code' button above and download the repo as a zip file.
 
 **Conclusions:** *In conclusion, the results support the theoretical negative interpersonal schemas in the constructs of Antagonism and Disinhibition - as assessed by the PID-5-BF. Results are inconclusive with respect to informant reports - however, this may be due to low statistical power. There are many future directions that research projects can take – for example, studies may want to look at whether these negative perceptions result in actual observable negative interpersonal behaviours.*
 
-
-
- <!-- badges: start -->
-  [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/michaelcarnovale/SRP-2021-Poster/main?urlpath=rstudio)
-  <!-- badges: end -->
