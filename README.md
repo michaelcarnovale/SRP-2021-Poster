@@ -50,3 +50,9 @@ or click the green 'Code' button above and download the repo as a zip file.
 **Results:** *First, results corroborated that those who thought of themselves as having more antagonism, disinhibition, and general personality pathology tended to see others as generally more negative. The other self-reported domains and informant scores did not significantly predict perceiver effects. Further exploratory analyses suggested that, using Jonckheere’s trend test, the ordering of the Likert scale for 2/5 self-reported Antagonism items and 4/5 Disinhibition items had a significant increasing monotonic relation with negative perceptions.*
 
 **Conclusions:** *In conclusion, the results support the theoretical negative interpersonal schemas in the constructs of Antagonism and Disinhibition - as assessed by the PID-5-BF. Results are inconclusive with respect to informant reports - however, this may be due to low statistical power. There are many future directions that research projects can take – for example, studies may want to look at whether these negative perceptions result in actual observable negative interpersonal behaviours.*
+
+
+
+ <!-- badges: start -->
+  [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/michaelcarnovale/SRP-2021-Poster/main?urlpath=rstudio)
+  <!-- badges: end -->
