@@ -1,0 +1,19 @@
+install.packages(
+  "car",
+  "DataExplorer",
+  "DescTools",
+  "dplyr",
+  "elasticnet",
+  "ggplot2",
+  "inspectdf",
+  "interactions",
+  "jtools",
+  "lavaan",
+  "psych",
+  "rmarkdown",
+  "skimr",
+  "stringi",
+  "summarytools",
+  "tidymodels",
+  "TripleR"
+)
