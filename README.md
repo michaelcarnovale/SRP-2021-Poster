@@ -12,9 +12,9 @@ This project also involved analyzing data using the following methodologies:
   * Targets provided round-robin ratings of normal-range personality traits (i.e., targets in groups of 4-5 people they are unfamiliar with and subsequently rating each other after group games)
   * Informant-reported ratings of targets' personality pathology/personality disorder traits
 * Various statistical models
-  * Principal Component Analysis
-  * Latent variable modeling/Structural equation modeling
-  * Regression/General linear modeling
+  * Principal component analysis
+  * Latent variable modeling/Structural equation modeling using the [Structural-After-Measurement approach](https://osf.io/xme9g/)
+  * Regression/General linear modeling with robust standard errors and multiple testing corrections
   * Ordinal hypothesis tests (Jonckheere's Trend Test)
 
 # Files in this Repo/Usage
