@@ -1,5 +1,5 @@
 # How is personality pathology related to negative perceptions of others? (SRP 2021)
-A repository for my research poster (**"How is personality pathology related to negative perceptions of others?"**) presented at the 2021 Society for Research in Psychopathology (SRP) conference. This repo contains substantive information regarding the content of the research project and files related to its statistical analyses (i.e., datasets, R syntax, R Markdown, R output).
+A repository for my research poster (**"How is personality pathology related to negative perceptions of others?"**) presented at the 2021 Society for Research in Psychopathology (SRP) conference. This repo contains information regarding the background/results of the research project and files related to its statistical analyses (i.e., datasets, R syntax, R Markdown, R output).
 
 # Table of Contents
 * [Description and Methods](https://github.com/michaelcarnovale/SRP-2021-Poster#description-and-methods)
